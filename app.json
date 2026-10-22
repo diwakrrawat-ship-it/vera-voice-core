@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "VERA Voice Core",
+    "slug": "vera-voice-core",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#050505"
+    },
+    "android": {
+      "package": "com.boss.veravoicecore",
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "RECORD_AUDIO",
+        "BIND_ACCESSIBILITY_SERVICE",
+        "READ_PHONE_STATE",
+        "PROCESS_OUTGOING_CALLS"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 34,
+            "targetSdkVersion": 34
+          }
+        }
+      ]
+    ]
+  }
+}
