@@ -12,11 +12,18 @@
       "backgroundColor": "#ffffff"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.diwakarsinghrawat.veravoicecore"
+      "package": "com.diwakarsinghrawat.veravoicecore",
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "RECORD_AUDIO"
+      ]
+    },
+    "owner": "diwakar1s-team",
+    "extra": {
+      "eas": {
+        "projectId": "vera-voice-core"
+      }
     }
   }
 }
