@@ -3,23 +3,19 @@
     "name": "VERA: Voice Core",
     "slug": "diwakar",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "userInterfaceStyle": "light",
-    "ios": {
-      "supportsTablet": true
-    },
+    "owner": "diwakar1s-team",
     "android": {
-      "package": "com.diwakarsinghrawat.veravoicecore",
-      "permissions": [
-        "INTERNET",
-        "ACCESS_NETWORK_STATE",
-        "RECORD_AUDIO"
-      ]
+      "package": "com.diwakarsinghrawat.veravoicecore"
     },
     "plugins": [
-      "expo-font"
+      [
+        "expo-splash-screen",
+        {
+          "image": "",
+          "backgroundColor": "#ffffff"
+        }
+      ]
     ],
-    "owner": "diwakar1s-team",
     "extra": {
       "eas": {
         "projectId": "21e1d331-347f-40e3-8e87-114e50a40e1a"
