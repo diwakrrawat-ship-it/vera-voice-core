@@ -29,6 +29,11 @@
     "plugins": [
       "expo-font"
     ],
-    "owner": "diwakar1s-team"
+    "owner": "diwakar1s-team",
+    "extra": {
+      "eas": {
+        "projectId": "vera-voice-core-new"
+      }
+    }
   }
 }
