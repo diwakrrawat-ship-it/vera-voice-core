@@ -7,15 +7,6 @@
     "android": {
       "package": "com.diwakarsinghrawat.veravoicecore"
     },
-    "plugins": [
-      [
-        "expo-splash-screen",
-        {
-          "image": "",
-          "backgroundColor": "#ffffff"
-        }
-      ]
-    ],
     "extra": {
       "eas": {
         "projectId": "21e1d331-347f-40e3-8e87-114e50a40e1a"
