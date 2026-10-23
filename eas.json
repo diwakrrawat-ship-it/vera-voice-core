@@ -11,9 +11,7 @@
     "preview": {
       "distribution": "internal"
     },
-    "production": {
-      "withoutCache": true
-    }
+    "production": {}
   },
   "submit": {
     "production": {}
