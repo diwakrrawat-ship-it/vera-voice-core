@@ -1,27 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, StatusBar, Alert } from 'react-native';
-import NetInfo from '@react-native-community/netinfo';
 
 export default function App() {
   const [isVeraActive, setIsVeraActive] = useState(true);
-  const [isConnected, setIsConnected] = useState(true);
   const [statusText, setStatusText] = useState('VERA Core is Active & Securing System');
 
-  useEffect(() => {
-    // हमारी नेटवर्क संरचना जाँचने की ज़रूरत
-    const unsubscribe = NetInfo.addEventListener(state => {
-      setIsConnected(state.isConnected);
-      if (state.isConnected) {
-        setStatusText('VERA Core is Active & Securing System');
-      } else {
-        setStatusText('WARNING: Network Disconnected! Secure Mode Enabled.');
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  // मास्टर किल-स्विच फंक्शन (सिस्टम को पुनः लिखने के लिए)
+  // मास्टर किल-स्विच फंक्शन
   const toggleVeraSwitch = () => {
     if (isVeraActive) {
       setIsVeraActive(false);
@@ -47,9 +31,9 @@ export default function App() {
           {isVeraActive ? 'SECURE & RUNNING' : 'SHUTDOWN'}
         </Text>
 
-        <Text style={styles.label}>Network Status:</Text>
+        <Text style={styles.label}>Security Mode:</Text>
         <Text style={styles.netValue}>
-          {isConnected ? 'Connected to Internet' : 'Offline / Disconnected'}
+          {isVeraActive ? 'Shield Active & Monitoring' : 'Emergency Mode Engaged'}
         </Text>
 
         <Text style={styles.detailText}>{statusText}</Text>
