@@ -25,3 +25,6 @@
   },
   "private": true
 }
+"scripts": {
+  "prebuild": "rm -rf android"
+}
