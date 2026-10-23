@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, StatusBar, Alert } from 'react-native';
-import NetInfo from '@netInfo';
+import NetInfo from '@react-native-community/netinfo';
 
 export default function App() {
   const [isVeraActive, setIsVeraActive] = useState(true);
@@ -8,42 +8,43 @@ export default function App() {
   const [statusText, setStatusText] = useState('VERA Core is Active & Securing System');
 
   useEffect(() => {
-    // असली नेटवर्क कनेक्शन जांचने की व्यवस्था
+    // हमारी नेटवर्क संरचना जाँचने की ज़रूरत
     const unsubscribe = NetInfo.addEventListener(state => {
       setIsConnected(state.isConnected);
-      if (!state.isConnected) {
-        setStatusText('WARNING: Network Disconnected! Secure Mode Enabled.');
-      } else {
+      if (state.isConnected) {
         setStatusText('VERA Core is Active & Securing System');
+      } else {
+        setStatusText('WARNING: Network Disconnected! Secure Mode Enabled.');
       }
     });
+
     return () => unsubscribe();
   }, []);
 
-  // मास्टर किल-स्विच फंक्शन (सिस्टम को तुरंत रोकने के लिए)
-  const toggleMasterKillSwitch = () => {
+  // मास्टर किल-स्विच फंक्शन (सिस्टम को पुनः लिखने के लिए)
+  const toggleVeraSwitch = () => {
     if (isVeraActive) {
       setIsVeraActive(false);
-      setStatusText('MASTER KILL-SWITCH ENGAGED: VERA Core Halted.');
+      setStatusText('MASTER KILL-SWITCH ENGAGED: VERA Core halted.');
       Alert.alert('Security Alert', 'VERA Voice Core has been completely shut down for emergency protection.');
     } else {
       setIsVeraActive(true);
-      setStatusText('VERA Core Restored & Securing System');
-      Alert.alert('System Resumed', 'VERA Voice Core is back online.');
+      setStatusText('System Restored, VERA Core is back online.');
+      Alert.alert('System Restored', 'VERA Voice Core is back online.');
     }
   };
 
   return (
-    <View style={[styles.container, { backgroundColor: isVeraActive ? '#0a0a0a' : '#2b0000' }]}>
+    <View style={[styles.container, { backgroundColor: isVeraActive ? '#0a0a0a' : '#2a0000' }]}>
       <StatusBar barStyle="light-content" />
       
-      <Text style={styles.title}>VERA: VOICE CORE</Text>
+      <Text style={styles.title}>VERA: Voice Core</Text>
       <Text style={styles.subtitle}>High-Security Android AI Assistant</Text>
 
       <View style={styles.card}>
         <Text style={styles.label}>System Status:</Text>
-        <Text style={[styles.statusValue, { color: isVeraActive ? '#00ffcc' : '#ff4444' }]}>
-          {isVeraActive ? 'SECURE & RUNNING' : 'OFFLINE (SHUTDOWN)'}
+        <Text style={[styles.statusValue, { color: isVeraActive ? '#4CAF50' : '#F44336' }]}>
+          {isVeraActive ? 'SECURE & RUNNING' : 'SHUTDOWN'}
         </Text>
 
         <Text style={styles.label}>Network Status:</Text>
@@ -56,11 +57,11 @@ export default function App() {
 
       {/* मास्टर किल-स्विच बटन */}
       <TouchableOpacity 
-        style={[styles.button, { backgroundColor: isVeraActive ? '#ff3333' : '#00cc66' }]} 
-        onPress={toggleMasterKillSwitch}
+        style={[styles.button, { backgroundColor: isVeraActive ? '#F44336' : '#4CAF50' }]}
+        onPress={toggleVeraSwitch}
       >
         <Text style={styles.buttonText}>
-          {isVeraActive ? 'ENGAGE KILL-SWITCH' : 'RESTORE VERA CORE'}
+          {isVeraActive ? 'ENGAGE KILL-SWITCH' : 'WAKE VERA CORE'}
         </Text>
       </TouchableOpacity>
     </View>
@@ -82,21 +83,22 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 14,
-    color: '#888888',
+    color: '#aaaaaa',
     marginBottom: 30,
   },
   card: {
-    width: '100%',
-    backgroundColor: '#161616',
-    borderRadius: 12,
+    backgroundColor: '#1e1e1e',
     padding: 20,
+    borderRadius: 12,
+    width: '100%',
+    maxWidth: 350,
+    marginBottom: 30,
     borderWidth: 1,
     borderColor: '#333333',
-    marginBottom: 30,
   },
   label: {
-    fontSize: 12,
-    color: '#aaaaaa',
+    fontSize: 14,
+    color: '#888888',
     marginTop: 10,
   },
   statusValue: {
@@ -110,15 +112,17 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   detailText: {
-    fontSize: 13,
-    color: '#dddddd',
+    fontSize: 12,
+    color: '#cccccc',
     marginTop: 15,
     fontStyle: 'italic',
   },
   button: {
+    paddingVertical: 14,
+    paddingHorizontal: 28,
+    borderRadius: 8,
     width: '100%',
-    padding: 16,
-    borderRadius: 10,
+    maxWidth: 350,
     alignItems: 'center',
   },
   buttonText: {
