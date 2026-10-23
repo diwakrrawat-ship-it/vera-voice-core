@@ -5,7 +5,10 @@
     "version": "1.0.1",
     "owner": "diwakar1s-team",
     "android": {
-      "package": "com.diwakarsinghrawat.veravoicecore"
+      "package": "com.diwakarsinghrawat.veravoicecore",
+      "splash": {
+        "backgroundColor": "#000000"
+      }
     },
     "extra": {
       "eas": {
