@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "VERA: Voice Core",
-    "slug": "diwakar",
-    "version": "1.0.3",
+    "slug": "vera-voice-core-new",
+    "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "android": {
@@ -13,11 +13,6 @@
         "RECORD_AUDIO"
       ]
     },
-    "owner": "diwakar1s-team",
-    "extra": {
-      "eas": {
-        "projectId": "21e1d331-347f-40e3-8e87-114e50a40e1a"
-      }
-    }
+    "owner": "diwakar1s-team"
   }
 }
