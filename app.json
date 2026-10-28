@@ -1,14 +1,15 @@
 {
   "expo": {
-    "name": "VERA: Voice Core",
-    "slug": "diwakar",
+    "name": "VERA Voice Core",
+    "slug": "vera-voice-core",
     "version": "1.0.1",
     "owner": "diwakar1s-team",
+    "sdkVersion": "51.0.0",
+    "platforms": [
+      "android"
+    ],
     "android": {
-      "package": "com.diwakarsinghrawat.veravoicecore",
-      "splash": {
-        "backgroundColor": "#000000"
-      }
+      "package": "com.diwakar1s.veravoicecore"
     },
     "extra": {
       "eas": {
